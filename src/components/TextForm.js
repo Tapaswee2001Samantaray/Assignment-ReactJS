@@ -23,10 +23,10 @@ function TextForm({ heading, mode, showAlert }) {
     }
 
     function handleCopy() {
-        let text = document.getElementById("myBox");
-        text.select();
-        navigator.clipboard.writeText(text.value);
-        document.getSelection().removeAllRanges(); //remove the selected text color
+        // let text = document.getElementById("myBox");
+        // text.select();
+        navigator.clipboard.writeText(text);
+        // document.getSelection().removeAllRanges(); //remove the selected text color
         showAlert("Copied to clipboard.", "success");
     }
 
@@ -37,7 +37,7 @@ function TextForm({ heading, mode, showAlert }) {
     }
 
     function countWords(text) {
-        let arr = text.split(" ");
+        let arr = text.split(/\s+/);
         let resultArr = arr.filter(word => {
             return word !== String("");
         });
